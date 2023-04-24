@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'stockInventory')}">
+
+<body>
+
+<h2>Stock Inventory Information</h2>
+
+<table class="table table-striped"  th:object="${stockInventory}">
+  <tr>
+    <th>Material ID</th>
+    <td th:text="*{material.id}" /></td>
+  </tr>
+  <tr>
+    <th>Material Name</th>
+    <td th:text="*{material.materialName}" /></td>
+  </tr>
+  <tr>
+    <th>Logged In Date</th>
+    <td th:text="*{loggedInDate}" /></td>
+  </tr>
+  <tr>
+    <th>Logged out Date</th>
+    <td th:text="*{loggedOutDate}" /></td>
+  </tr>
+  <tr>
+    <th>Size</th>
+    <td th:text="*{Size}" /></td>
+  </tr>
+  <tr>
+    <th>Quantity</th>
+    <td th:text="*{Quantity}" /></td>
+  </tr>
+</table>
+
+<a th:href="@{/stockInventory/{id}/delete(id=${id})}" class="btn btn-default">Delete Stock Inventory</a>
+<a th:href="@{/stockInventory/{id}/materialLogout(id=${id})}" class="btn btn-default">Logout Stock Inventory</a>
+<a th:href="@{/stockInventory/{id}/edit(id=${id})}" class="btn btn-default">Edit Stock Inventory</a>
+<a th:href="@{/stockInventory/list}" class="btn btn-default">Display All Stock Inventory</a>
+
+</body>
+</html>

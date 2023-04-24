@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'products')}">
+
+<body>
+
+<h2>Product Information</h2>
+
+<table class="table table-striped" th:object="${product}">
+  <tr>
+    <th>Product ID</th>
+    <td><b th:text="*{id}"></b></td>
+  </tr>
+  <tr>
+    <th style="width: 200px;">Product Name</th>
+    <td><b th:text="*{productName}"></b></td>
+  </tr>
+
+</table>
+
+<a th:href="@{{id}/edit(id=${product.id})}" class="btn btn-default">Edit product</a>
+<a th:href="@{{id}/delete(id=${product.id})}" class="btn btn-default">Delete product</a>
+<br >
+
+</body>
+
+</html>

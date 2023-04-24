@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'orders')}">
+
+<body>
+
+<h2>Orders Information</h2>
+
+<table class="table table-striped"  th:object="${OrderItem}">
+    <tr>
+        <th>Customer Id </th>
+        <td th:text="*{customerId}" /></td>
+    </tr>
+    <tr>
+        <th>Product ID</th>
+        <td th:text="*{product.id}">id</td>
+
+    </tr>
+    <tr>
+        <th>Size</th>
+        <td th:text="*{size}" /></td>
+    </tr>
+
+    <tr>
+        <th>Quantity</th>
+        <td th:text="*{quantity}" /></td>
+    </tr>
+</table>
+
+<a th:href="@{{id}/orders/new(id=${customer.id})}" class="btn btn-default">Add orders</a>
+<a th:href="@{/customer/{cid}/orders/{id}/add(cid=${customerId},(id=${id}))}" class="btn btn-default">Add Materials To Order</a>
+<a th:href="@{{id}/orders(id=${customer.id})}" class="btn btn-default">Display Order</a>
+<br >
+<!-- <a th:href="@{{id}/orders/new(id=${customer.id})}" class="btn btn-default">
+Add New Orders</a> -->
+<!-- add a button to list orders??-->
+<br />
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'products')}">
+<body>
+
+<h2>PRODUCT</h2>
+<form th:object="${product}" class="form-horizontal" id="add-product-form" method="post">
+  <div class="form-group has-feedback">
+
+    <input
+            th:replace="~{fragments/inputField :: input ('Product Name', 'productName', 'text')}" />
+    <br >
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button
+                th:with="text=${product} ? 'Submit' : 'Update product'"
+                class="btn btn-default" type="submit" th:text="${text}">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
+</body>
+</html>

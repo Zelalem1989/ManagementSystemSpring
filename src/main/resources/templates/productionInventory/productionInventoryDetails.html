@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'stockInventory')}">
+
+<body>
+
+<h2>Production Inventory Information</h2>
+
+<table class="table table-striped" th:object="${productionInventory}">
+    <tr>
+      <th>Material ID</th>
+      <td th:text="*{material.id}" /></td>
+    </tr>
+    <tr>
+      <th>Material Name</th>
+      <td th:text="*{material.materialName}" /></td>
+    </tr>
+  <tr>
+    <th>Logged In Date</th>
+    <td th:text="*{loggedInDate}" /></td>
+  </tr>
+  <tr>
+    <th>Logged out Date</th>
+    <td th:text="*{loggedOutDate}" /></td>
+  </tr>
+  <tr>
+    <th>Size</th>
+    <td th:text="*{Size}" /></td>
+  </tr>
+  <tr>
+    <th>Quantity</th>
+    <td th:text="*{Quantity}" /></td>
+  </tr>
+</table>
+
+<a th:href="@{/productionInventory/{id}/delete(id=${id})}" class="btn btn-default">Delete Production Inventory</a>
+<a th:href="@{/productionInventory/new}" class="btn btn-default">Add More Production Inventory</a>
+<a th:href="@{/productionInventory/{id}/edit(id=${id})}" class="btn btn-default">Edit Production Inventory</a>
+<a th:href="@{/productionInventory/list}" class="btn btn-default">Display All Production Inventory</a>
+
+</body>
+</html>

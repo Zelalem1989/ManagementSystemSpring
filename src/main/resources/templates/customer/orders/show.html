@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body}, 'orders')}">
+
+<body>
+
+<table class="table table-striped" th:object="${OrderItem}">
+
+    <tr>
+        <!-- <th>Customer Name</th> -->
+        <th>Customer ID </th>
+        <td>
+        <a th:href="@{/customer/__${customerId}__}" th:text="*{customerId}" />
+        </td>
+    </tr>
+
+    <tr>
+    <th>Product Name</th>
+        <td th:text="*{product.productName}"></td>
+
+    </tr>
+    <tr>
+        <th>Size</th>
+        <td th:text="*{size}" /></td>
+    </tr>
+    <tr>
+        <th>Quantity</th>
+        <td th:text="*{quantity}" /></td>
+    </tr>
+
+
+</table>
+
+
+<a th:href="@{/customer/{cid}/orders/{id}/delete(cid=${customerId},(id=${id}))}" class="btn btn-default">Delete Orders</a>
+<a th:href="@{/customer/{cid}/orders/new(cid=${customerId})}" class="btn btn-default">Add More orders</a>
+<a th:href="@{/customer/{cid}/orders/{id}/edit(cid=${customerId},(id=${id}))}" class="btn btn-default">Edit Order</a>
+<a th:href="@{/customer/{cid}/orders(cid=${customerId})}" class="btn btn-default">Display All Customer Order</a>
+<a th:href="@{/customer/{cid}/orders/{id}/add(cid=${customerId},(id=${id}))}" class="btn btn-default">Add Material To Order</a>
+</body>
+</html>
+

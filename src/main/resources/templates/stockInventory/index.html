@@ -1,0 +1,39 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'stockInventory')}">
+
+<body>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-right">
+      <li th:fragment="menuItem (path,active,title,glyph,text)" class="active" th:class="${active==menu ? 'active' : ''}">
+        <a th:href="@{__${path}__}" th:title="${title}">
+          <span th:class="'glyphicon  glyphicon-'+${glyph}" class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          <span th:text="${text}">Template</span>
+        </a>
+      </li>
+      <br >
+      <li th:replace="::menuItem ('/stockInventory/list','stockInventory','list page','th-list',' List All stockInventory')">
+        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+        <span>List All stockInventory</span>
+      </li>
+      <br >
+      <li th:replace="::menuItem ('/stockInventory/new','stockInventory','stockInventory page','stockInventory',' Add A stockInventory')">
+        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+        <span>Add A stockInventory</span>
+      </li>
+      <br >
+      <li th:replace="::menuItem ('/stockInventory/find','stockInventory','find page','th-list',' Find Material in stock Inventory')">
+        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+        <span>List All productionInventory</span>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+</div>
+
+</body>
+</html>
+

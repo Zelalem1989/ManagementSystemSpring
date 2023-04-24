@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'productionInventory')}">
+<body>
+
+<h2>Production Inventory</h2>
+<form th:object="${productionInventory}" class="form-horizontal" id="add-customer-form" method="post">
+
+    <div class="form-group has-feedback">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">MATERIALS</label>
+            <input
+                    th:replace="~{fragments/selectField1 :: select ('Material', 'material.id', ${material})}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Logged In Date', 'loggedInDate', 'date')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Logged out Date', 'loggedOutDate', 'date')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Size', 'Size', 'text')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Width', 'Width', 'number')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Length', 'Length', 'number')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Quantity', 'Quantity', 'number')}" />
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-default" type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

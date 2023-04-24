@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'customer')}">
+
+<body>
+
+<h2>Customer</h2>
+
+<table id="customer" class="table table-striped">
+  <thead>
+  <tr>
+    <th style="width: 150px;">Name</th>
+    <th style="width: 200px;">Email</th>
+    <th style="width: 120px">Telephone</th>
+    <th style="width: 120px;">TIN Number</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="customer : ${selections}">
+    <td>
+      <a th:href="@{/customer/__${customer.id}__}" th:text="${customer.name}"/></a>
+    </td>
+    <td th:text="${customer.email}"/>
+    <td th:text="${customer.phoneNumber}"/>
+    <td th:text="${customer.tinNumber}"/>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

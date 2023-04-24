@@ -1,0 +1,39 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'stockInventory')}">
+<body>
+
+<h2>Stock Inventory Logout </h2>
+
+<form th:object="${stockInventory}" class="form-horizontal" method="post">
+    <div class="form-group has-feedback">
+        <div class="form-group">
+
+            <input type="hidden" th:readonly="readonly"
+                   th:replace="~{fragments/selectField1 :: select ('Material', 'material.id', ${material})}" />
+            <input type="hidden" th:readonly="readonly"
+                    th:replace="~{fragments/inputField :: input ('Logged In Date', 'loggedInDate', 'date')}" />
+            <input type="hidden" th:readonly="readonly"
+                   th:replace="~{fragments/inputField :: input ('Available Quantity', 'initialQuantity', 'number')}" />
+            <input type="hidden" th:readonly="readonly"
+                   th:replace="~{fragments/inputField :: input ('Size', 'Size', 'text')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Logged out Date', 'loggedOutDate', 'date')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Width', 'Width', 'number')}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Length', 'Length', 'number')}" />
+
+            <input
+                    th:replace="~{fragments/inputField :: input ('Quantity', 'Quantity', 'number')}" />
+            <br >
+            </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-default" type="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

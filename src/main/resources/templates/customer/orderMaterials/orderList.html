@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'order')}">
+
+<body>
+
+<h2>Customer</h2>
+
+<table id="order" class="table table-striped">
+    <thead>
+    <tr>
+        <th style="width: 150px;">Order ID</th>
+        <th style="width: 200px;">Product Name</th>
+        <th style="width: 120px">SIZE</th>
+        <th style="width: 120px;">QUANTITY</th>
+        <th style="width: 120px;"> Customer Name</th>>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order : ${selections}">
+        <td th:text="${order.id}"/>
+        <td th:text="${order.product}"/>
+        <td th:text="${order.size}"/>
+        <td th:text="${order.quantity}"/>
+        <td>
+            <a th:href="@{/customer/__${customer.id}__}"
+               th:text="${customer.firstName + ' ' + customer.lastName}"/></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

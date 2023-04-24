@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'order')}">
+
+<body>
+
+    <h2>Order Form</h2>
+
+                <form th:object="${order}" class="form-horizontal" id="add-order-form" method="post" >
+
+                    <div class="form-group">
+                        <label> PRODUCTS </label>
+                            <select field="orderItem.product.id" class="form-control selectpicker" >
+                                <!--  <select class="form-control selectpicker" th:field="*{sticker}" id="sticker">-->
+                                <option th:each="product : ${product}"
+                                        th:value="${product.id}"
+                                        th:text="${product.productName}">
+                                </option>
+                          </select>
+                        <input type="text" field="orderItem.size" />
+                        <input type="number" field="orderItem.quantity" value="0" />
+                    </div>
+
+                         <button th:with="text=${order} ? 'Submit' : 'Update order'"
+                                 class="btn btn-default" type="submit">Submit</button>
+                </form>
+    </body>
+</html>

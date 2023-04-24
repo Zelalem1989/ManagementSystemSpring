@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'material')}">
+  <body>
+
+    <h2>Material Information</h2>
+
+    <table class="table table-striped" th:object="${material}">
+
+      <tr>
+        <th>Material ID</th>
+        <td><b th:text="*{id}"></b></td>
+      </tr>
+      <tr>
+        <th style="width: 200px;">Material Name</th>
+        <td><b th:text="*{materialName}"></b></td>
+      </tr>
+
+    </table>
+
+      <a th:href="@{{id}/edit(id=${material.id})}" class="btn btn-default">Edit material</a>
+      <a th:href="@{{id}/delete(id=${material.id})}" class="btn btn-default">Delete material</a>
+
+  </body>
+
+</html>

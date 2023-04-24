@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'orders')}">
+
+<body>
+    <h2>Order</h2>
+
+    <form class="form-horizontal"  th:object="${orderItem}" method="post">
+        <div class="form-group has-feedback">
+
+            <input
+                    th:replace="~{fragments/selectField :: select ('Product', 'product.id', ${product})}" />
+            <input
+                    th:replace="~{fragments/selectField2 :: select ('Available Material ', 'productionInventory.id', ${productionInventory})}" />
+            <input
+                    th:replace="~{fragments/selectField3 :: select ('Size', 'productionInventory.id', ${productionInventory})}" />
+            <input
+                    th:replace="~{fragments/inputField :: input ('Quantity', 'productionInventory.Quantity', 'number')}" />
+        </div>
+    </form>
+</body>
+</html>

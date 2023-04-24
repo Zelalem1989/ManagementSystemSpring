@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'customer')}">
+<body>
+  <h2>Delete Customer</h2>
+
+    <form th:object="${customer}" method="get"
+          class="form-horizontal" id="delete-customer-form">
+        <div class="form-group">
+        <div class="control-group" id="idGroup">
+          <label class="col-sm-2 control-label"> ID Number </label>
+            <div class="col-sm-10">
+                <input class="form-control" th:field="*{id}" size="30"
+                 maxlength="80" /> <span class="help-inline">
+                    <div th:if="${#fields.hasAnyErrors()}">
+                <p th:each="err : ${#fields.allErrors()}" th:text="${err}">Error</p>
+            </div>
+          </span>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default"> Delete Customer</button>
+    </div>
+  </div>
+</form>
+
+</body>
+</html>

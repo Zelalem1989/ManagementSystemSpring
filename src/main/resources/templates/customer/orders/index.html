@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'orders')}">
+
+<body>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav navbar-right">
+      <li th:fragment="menuItem (path,active,title,glyph,text)" class="active" th:class="${active==menu ? 'active' : ''}">
+        <a th:href="@{__${path}__}" th:title="${title}">
+          <span th:class="'glyphicon  glyphicon-'+${glyph}" class="glyphicon glyphicon-home" aria-hidden="true"></span>
+          <span th:text="${text}">Template</span>
+        </a>
+      </li>
+      <br >
+      <li th:replace="::menuItem ('/customer/orders','orders','list page','th-list',' List All Order')">
+        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+        <span>List All orders</span>
+      </li>
+      <br >
+      <li th:replace="::menuItem ('/customer/orders','orders','list page','th-list',' Add Material To Order ')">
+        <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span>
+        <span>Add Material To Order</span>
+      </li>
+      <br >
+    </ul>
+  </div>
+  </div>
+</nav>
+
+</div>
+
+</body>
+</html>
+
+
+

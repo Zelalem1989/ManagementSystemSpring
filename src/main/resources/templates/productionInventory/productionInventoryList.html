@@ -1,0 +1,34 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body},'productionInventory')}">
+<body>
+<h2>Production Inventory List</h2>
+
+<table id="productionInventory" class="table table-striped">
+  <thead>
+  <tr>
+    <th style="width: 150px;">ID</th>
+    <th style="width: 150px;">Material ID</th>
+    <th style="width: 150px;">Material Name</th>
+    <th style="width: 200px;">Logged In Date</th>
+    <th style="width: 120px">Logged Out Date</th>
+    <th style="width: 120px;">Size</th>
+    <th style="width: 120px;">Quantity</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="productionInventory : ${selections}">
+    <td>
+      <a th:href="@{/productionInventory/__${productionInventory.id}__}" th:text="${productionInventory.id}"/>
+    </td>
+    <td th:text="${productionInventory.material.id}"/>
+    <td th:text="${productionInventory.material.materialName}"/>
+    <td th:text="${productionInventory.loggedInDate}"/>
+    <td th:text="${productionInventory.loggedOutDate}"/>
+    <td th:text="${productionInventory.Size}"/>
+    <td th:text="${productionInventory.Quantity}"/>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
